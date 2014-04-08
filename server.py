@@ -1,5 +1,3 @@
-""".....code for the bus tracking system by the help of pyramid frame work....."""
-
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response

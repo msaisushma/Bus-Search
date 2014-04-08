@@ -14,19 +14,20 @@ from pyramid.response import Response
 from pyramid.view import view_config
 from server import get_session
 
-@view_config(route_name='home', renderer='templates.pt')
+@view_config(route_name='home', renderer='templates/home.pt')
 def home_view(request):
-    return Response('<h1><p>Welcome</p></h1>')
+	res = "Route Info for Bus number 210:{0} {1} {2}".format('Chamrajpet','Lalbagh','NR Colony')	
+	return Response(res)
 
 @view_config(route_name='bus')
 def form_view(request):
-	result = render('templates.pt',
+	result = render('templates/home.pt',
 	                {'start_point':'Majestic','end_point':'Uttarahalli','route':'Chamrajpet Lalbagh'},
 	                request=request)
 	response = Response(result)
 	return response
 
-@view_config(route_name='response', renderer='templates.pt')
+@view_config(route_name='response', renderer='templates/home.pt')
 def fetch_bus_info(request):
 	bus_no = request.params.get('bus_no','')
 	assert bus_no, 'Keyword expected as bus_no. Got nothing instead'
