@@ -12,7 +12,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from pyramid.renderers import render
 from pyramid.response import Response
 from pyramid.view import view_config
-from bus import get_session
+from server import get_session
 
 @view_config(route_name='home', renderer='templates.pt')
 def home_view(request):
